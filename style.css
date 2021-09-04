@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+@font-face {
+  font-family: Icons;
+  src: url('resources/fontello.ttf');
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  padding: 0px;
+  margin: 0px;
+  overflow-y: overlay;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+.icon {
+  font-family: 'Icons', 'Open Sans', sans-serif;
+}
+
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  height: 0.5vw;
+  width: 0.5vw;
+  opacity: 0%;
+  z-index: 1;
+}
+
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+
+p {
+  display: inline;
+}
+
+body section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+/** @1-- */
+
+#blackPhrase {
+  background: black;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/** @2-- */
+
+
+#isWhite * {
+  margin: 30px;
+  font-size: 150%;
+}
+
+
+/** @3-- */
+
+
+#isPudge {
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 150%;
+  text-align: right;
+  background: black;
+  color: white;
+}
+
+#isPudge * {
+  margin: 30px;
+}
