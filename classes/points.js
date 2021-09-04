@@ -1,9 +1,15 @@
-class PointsClass {
-  constructor( points ){
-
+export class PointsClass {
+  constructor( app ){
+    this.points = [ HelloPointClass, WhitePointClass, PudgePointClass ];
   }
+
+
 }
 
+
+class HelloPointClass {
+
+}
 
 class WhitePointClass {
 
