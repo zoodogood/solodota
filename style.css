@@ -52,8 +52,46 @@ body section {
   width: 100%;
   display: flex;
   flex-direction: column;
+  transition: transform 200ms;
 }
 
+
+
+.context-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #555;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  background: #222;
+  color: #999;
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+
+.context-menu div {
+  text-align: center;
+  cursor: pointer;
+  padding: 7px;
+}
+
+.context-menu div:hover {
+  background: url("https://media.discordapp.net/attachments/629546680840093696/830774000597991434/96-967226_tree-forest-green-vector-map-of-the-trees.png"), #fff;
+  color: #111;
+}
+
+.context-menu div:first-child {
+  font-weight: 600;
+}
+
+.context-menu div::after {
+  content: "";
+  background: #444;
+  display: block;
+  height: 1px;
+  width: 100%;
+  margin-top: 7px;
+}
 
 
 
@@ -76,6 +114,15 @@ body section {
   font-size: 150%;
 }
 
+#isWhite {
+  transition: all 1200ms;
+}
+
+#isWhite.handled {
+  background: black;
+  color: white;
+}
+
 
 /** @3-- */
 
@@ -91,4 +138,13 @@ body section {
 
 #isPudge * {
   margin: 30px;
+}
+
+
+/** @4-- */
+
+#nigma {
+  justify-content: center;
+  align-items: center;
+  font-size: 300%;
 }

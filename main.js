@@ -1,17 +1,20 @@
 class App {
   constructor(){
-    this.maxPosition = 0;
-    this.pointsCount = document.body.clientHeight / window.innerHeight;
+    this.maxPosition  = 0;
+    this.pointsCount  = document.body.clientHeight / window.innerHeight;
+    this.pointSetions = [...document.body.children].filter(element => element.nodeName === "SECTION");
 
     this.points = new PointsClass( this );
   }
 
-  checkPosition(){
+  async checkPosition(){
+    await delay(50);
     let position = app.getPostion();
-    console.log(position);
-    if ( position > app.maxPosition ){
-    }
 
+    if ( position > app.maxPosition ){
+      this.points.run( position );
+      app.maxPosition = position;
+    }
   }
 
   getPostion(){
@@ -20,12 +23,8 @@ class App {
 }
 
 
-import { PointsClass } from "classes/points.js";
-
-
 
 const app = new App();
-// const
 
 
 
@@ -54,10 +53,39 @@ document.body.addEventListener("wheel", async e => {
 
   window.scrollBy({ behavior: "smooth", top: delta });
   app.scrollDelay = Date.now() + 500;
+  app.checkPosition();
 }, {passive: false});
 
 
 document.body.addEventListener("contextmenu", async e => {
-  console.log(e);
   e.preventDefault();
+
+  if ( !app.contextMenu ){
+    return;
+  }
+
+  let click = await new ContextMenu( e.pageX, e.pageY, ["Призвать пуджа", "БЛЕКХОЛ, БРАТИШЬ\nБЛЕКХОЛ"] ).awaitClick();
+
+  if (click === null){
+    return;
+  }
+
+  if (click === "БЛЕКХОЛ, БРАТИШЬ\nБЛЕКХОЛ"){
+    window.scroll({top: 0});
+    app.freezeScroll = true;
+
+    for ( let point of app.pointSetions ){
+      await delay(150);
+
+      let transform = ["scale(0.2)", "scale(0.5)", "scale(0.7)", "translate(10px, 10px)", "rotate3d(1, 1, 1, 360deg)", "rotate(360deg)"].random();
+      point.style.transform = transform;
+
+      await delay(900);
+      point.style.transform = "translate(100vw, 0px)";
+      await delay(300);
+      point.remove();
+    }
+  }
 });
+
+window.scroll({top: 0, behavior: "smooth"});
