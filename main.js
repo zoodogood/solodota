@@ -64,7 +64,7 @@ document.body.addEventListener("contextmenu", async e => {
     return;
   }
 
-  let click = await new ContextMenu( e.pageX, e.pageY, ["Призвать пуджа", "БЛЕКХОЛ, БРАТИШЬ\nБЛЕКХОЛ"] ).awaitClick();
+  let click = await new ContextMenu( e.pageX, e.pageY, app.contextMenu ).awaitClick();
 
   if (click === null){
     return;
@@ -85,6 +85,14 @@ document.body.addEventListener("contextmenu", async e => {
       await delay(300);
       point.remove();
     }
+
+    Alert.create("<h1>Вселенная была успешно уничтожена</h1>... <i>(трое-точие)</i>", "error", "Произошла ошибка");
+    return;
+  }
+
+  if (click === "Призвать Пуджа"){
+    alert("Не удалось призвать пуджа");
+
   }
 });
 

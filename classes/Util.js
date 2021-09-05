@@ -3,18 +3,14 @@ function delay(ms){
 }
 
 
-function random(max, min){
-
-}
-
 
 function random(...arguments){
-  let lastArgument = arguments.splice(-1).last;
+  let lastArgument = arguments.splice(-1)[0];
   let options = {round: true};
 
   if (typeof lastArgument === "object"){
     Object.assign(options, lastArgument);
-    lastArgument = arguments.splice(-1).last;
+    lastArgument = arguments.splice(-1)[0];
   }
 
   const max = lastArgument + Number(options.round);
